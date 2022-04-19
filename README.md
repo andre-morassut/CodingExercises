@@ -1,3 +1,3 @@
 # CodingExercises
 
-All answers to CodinGame, LeetCode, etc. coding exercices.
+All my answers to CodinGame, LeetCode, etc. coding exercices.
