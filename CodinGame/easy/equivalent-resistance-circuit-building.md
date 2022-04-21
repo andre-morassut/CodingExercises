@@ -1,4 +1,4 @@
-# Encryption/Decryption of Enigma Machine
+# Equivalent Resistance, Circuit Building
 
 ## Description
 
