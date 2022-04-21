@@ -11,7 +11,7 @@ Note that it may look like a difficult problem, but in reality the problem is ea
  	Rules
 Built as a game, the simulator puts Mars Lander on a limited zone of Mars sky.
 
-![Mars lander drawing](img/mars-lander-episode-1-fig1.png "Landing zone")
+![Mars lander drawing](img/mars-lander-episode-1-fig1.PNG "Landing zone")
 
 	The zone is 7000m wide and 3000m high.
 
