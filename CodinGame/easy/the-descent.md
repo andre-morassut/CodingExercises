@@ -1,6 +1,8 @@
-# Onboarding
+# The Descent
 
 ## Description
+
+Level : easy
 
 ### The Goal
 Destroy the mountains before your starship collides with one of them. For that, shoot the highest mountain on your path.
