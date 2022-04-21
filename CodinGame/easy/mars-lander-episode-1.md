@@ -13,11 +13,13 @@ Built as a game, the simulator puts Mars Lander on a limited zone of Mars sky.
 
 ![Mars lander drawing](img/mars-lander-episode-1-fig1.PNG "Landing zone")
 
-	The zone is 7000m wide and 3000m high.
+> The zone is 7000m wide and 3000m high.
+> *For this level*, Mars Lander is above the landing zone, in vertical position, with no initial speed.
+> There is a *unique area of flat ground* on the surface of Mars, which is at least 1000 meters wide.
 
-For this level, Mars Lander is above the landing zone, in vertical position, with no initial speed.
+Every second, depending on the current flight parameters (location, speed, fuel ...), the program must provide the new desired tilt angle and thrust power of Mars Lander:
 
-There is a unique area of flat ground on the surface of Mars, which is at least 1000 meters wide.Every second, depending on the current flight parameters (location, speed, fuel ...), the program must provide the new desired tilt angle and thrust power of Mars Lander:
+
 	Angle goes from -90° to 90° . Thrust power goes from 0 to 4 .
 
 For this level, you only need to control the thrust power: the tilt angle should be 0.The game simulates a free fall without atmosphere. Gravity on Mars is 3.711 m/s² . For a thrust power of X, a push force equivalent to X m/s² is generated and X liters of fuel are consumed. As such, a thrust power of 4 in an almost vertical position is needed to compensate for the gravity on Mars.
