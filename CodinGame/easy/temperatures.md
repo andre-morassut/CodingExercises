@@ -77,8 +77,6 @@ if (inputs.length > 0) {
     }
 }
 
-
-
 // Write an answer using console.log()
 // To debug: console.error('Debug messages...');
 
