@@ -1,6 +1,4 @@
-# Title
-
-This is the title.
+# Rectangle Partition
 
 ## Description
 
