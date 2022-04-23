@@ -1,11 +1,20 @@
+# Title
 
+This is the title.
+
+## Description
+
+This is the description.
+
+## Code
+
+```js
 let xArray = [0];
 let yArray = [0];
 /**
  * Auto-generated code below aims at helping you parse
  * the standard input according to the problem statement.
  **/
-/*
 var inputs = readline().split(' ');
 const w = parseInt(inputs[0]);
 const h = parseInt(inputs[1]);
@@ -19,31 +28,10 @@ var inputs = readline().split(' ');
 for (let i = 0; i < countY; i++) {
     yArray.push(parseInt(inputs[i]));
 }
-*/
+
 // Write an answer using console.log()
 // To debug: console.error('Debug messages...');
 // https://www.codingame.com/ide/puzzle/rectangle-partition
-const [W, H, _, __] = readline().split(' ').map(n => +n);
-const MW = [0].concat(readline().split(' ').map(n => +n)).concat([W]);
-const MH = [0].concat(readline().split(' ').map(n => +n)).concat([H]);
-let µ = a => console.error(a);
-µ(`MW:${MW}`);
-µ(`MH:${MH}`);
-var squares = 0;
-for (let y = 0; y < MH.length - 1; y++) {
-    for (let x = 0; x < MW.length - 1; x++) {
-        let sliced = MW.slice(x + 1, MW.length);
-        µ(`y:${y},x:${x} : sliced:${sliced}`);
-        squares += sliced.filter(next => {
-            µ(`MH.includes(MH[y]:${MH[y]} + next:${next} - MW[x:${x}]:${MW[x]}) = MH.includes(${MH[y] + next - MW[x]}) = ${MH.includes(MH[y] + next - MW[x])}`);
-            return MH.includes(MH[y] + next - MW[x])
-        }).length;
-
-        //squares += MW.slice(x + 1, MW.length).filter(next => MH.includes(MH[y] + next - MW[x])).length;
-    }
-}
-console.log(squares);
-/*
 xArray.push(w);
 yArray.push(h);
 let answer = 0;
@@ -69,10 +57,34 @@ for (let i = 0; i < xDistances.length; i++) {
     }
 }
 console.log(answer);
+
+
+// FTR 1 : Clever solution
+// note the pattern : using a sliced copy of x positions to compute distances
+/*
+const [W, H, _, __] = readline().split(' ').map(n => +n);
+const MW = [0].concat(readline().split(' ').map(n => +n)).concat([W]);
+const MH = [0].concat(readline().split(' ').map(n => +n)).concat([H]);
+let µ = a => console.error(a);
+µ(`MW:${MW}`);
+µ(`MH:${MH}`);
+var squares = 0;
+for (let y = 0; y < MH.length - 1; y++) {
+    for (let x = 0; x < MW.length - 1; x++) {
+        let sliced = MW.slice(x + 1, MW.length);
+        µ(`y:${y},x:${x} : sliced:${sliced}`);
+        squares += sliced.filter(next => {
+            µ(`MH.includes(MH[y]:${MH[y]} + next:${next} - MW[x:${x}]:${MW[x]}) = MH.includes(${MH[y] + next - MW[x]}) = ${MH.includes(MH[y] + next - MW[x])}`);
+            return MH.includes(MH[y] + next - MW[x])
+        }).length;
+
+        //squares += MW.slice(x + 1, MW.length).filter(next => MH.includes(MH[y] + next - MW[x])).length;
+    }
+}
+console.log(squares);
 */
 
-
-// FTR : Example of a "naive" solution => not optimized enough (all cases are evaluated)
+// FTR 2 : Example of a "naive" solution => not optimized enough (all cases are evaluated)
 /*
 for (let x1 = 0; x1 < xArray.length; x1++) {
     for (let x2 = (x1 + 1); x2 < xArray.length; x2++) {
@@ -88,3 +100,5 @@ for (let x1 = 0; x1 < xArray.length; x1++) {
 }
 console.log(answer);
 */
+
+```
