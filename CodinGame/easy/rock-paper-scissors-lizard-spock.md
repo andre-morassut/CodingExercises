@@ -1,8 +1,8 @@
-# Title
+# Rock Paper Scissors Lizard Spock
 
 ## Description
 
-Level : 
+Level : easy
 
 ### Goal
 
