@@ -97,3 +97,28 @@ function inc(cell) {
     return +cell + 1;
 }
 ```
+
+## Another answer (really cool, by luigi_gelato)
+
+luigi_gelato codinGame profile URL : https://www.codingame.com/profile/e6fd6e26f416690cbe40734e5165e8fc8515132
+
+```js
+const w = +readline();
+const h = +readline();
+const grid = [...Array(h)].map(_ => readline().split(''));
+const neighbors = [[-1,-1],[0,-1],[1,-1],[-1,0],[1,0],[-1,1],[0,1],[1,1]];
+
+for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+        if (grid[y][x] == 'x') {
+            neighbors
+                .map(([dx,dy]) => [x+dx,y+dy])
+                .filter(([x,y]) => x >= 0 && x < w && y >= 0 && y < h)
+                .filter(([x,y]) => grid[y][x] != 'x')
+                .forEach(([x,y]) => grid[y][x] = +grid[y][x] + 1 || 1);
+        }
+    }
+}
+
+grid.forEach(row => console.log(row.join('').replace(/x/g, '.')));
+```
