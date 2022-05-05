@@ -59,16 +59,31 @@ Some numbers only deviate on the higher values of B. For example, the number 338
 N = 338066
 base 7: [33, 8, 0, 66]
 base 8: [33, 80, 66]
-Input
+```
+
+**Input**
+```
 Line 1: N given as a string
-Output
+```
+**Output**
+```
 Either a digit B, from 1 to 9 inclusively, indicating the first deviation from the normal behavior of congruent clumping, or Normal if there is no deviation
-Constraints
+```
+
+**Constraints**
+```
 10 ≤ N ≤ 10^1000
-Example
-Input
+```
+
+**Example**
+
+**Input**
+```
 157285
-Output
+```
+
+**Output**
+```
 Normal
 ```
 
