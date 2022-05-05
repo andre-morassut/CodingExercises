@@ -89,6 +89,10 @@ Normal
 
 ## Code
 
+The approach is to count the number of clumps for each base and track a decrease of this number when the base is incremented.
+
+Functional.
+
 ```js
 const N = readline();
 let check = Array(9).fill() 
@@ -99,3 +103,26 @@ let check = Array(9).fill()
 console.log(check === 0 ? 'Normal' : check);
 ```
 
+Procedural.
+
+```js
+const N = [...readline()];
+let check = 0;
+let clumps = [];
+mainLoop: for (let i = 0; i < 9; i++) {
+    let numberOfClumps = 0;
+    // compute clump count for each base
+    for (let j = 0; j < N.length; j++) {
+        if (N[j] % (i + 1) !== N[j - 1] % (i + 1)) {
+            numberOfClumps++;
+        }
+    }
+    clumps.push(numberOfClumps);
+    // check for decrease pattern 
+    if (clumps[i] < clumps[i - 1]) {
+        check = i + 1;
+        break mainLoop; // break early if found
+    }
+}
+console.log(check === 0 ? 'Normal' : check);
+```
