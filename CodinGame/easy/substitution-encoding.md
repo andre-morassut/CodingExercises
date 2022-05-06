@@ -60,10 +60,12 @@ CBA
 ## Code
 
 ```js
-marked.setOptions({
-  highlight: function(code, lang) {
-    return highlighter.javascript(code);
-  }
-});
+const rows = +readline();
+const cache = new Map();
+for (let i = 0; i < rows; i++) { // associative dictionary
+    readline().split(' ').forEach((v, j) => cache.set(v, '' + i + j));
+}
+const message = [...readline()].map(v => cache.get(v)).join('');
+console.log(message);
 ```
 
