@@ -43,6 +43,22 @@ WRONG MESSAGE
 
 ## Code
 
+Functional.
+
+```js
+const pattern = /(?:(?:^.*\s+)|^)CHIEF(?:(?:\s+.*$)|$)/gm;
+let msg = readline();
+let rots = Array(26).fill(msg).map((v, i) => shift(v, i))
+let valid = rots.findIndex(v => v.match(pattern) !== null)
+console.log(valid > -1 ? rots[valid] : 'WRONG MESSAGE');
+
+function shift(msg, n) {
+    return [...msg].map(v => v >= 'A' && v <= 'Z' ? 
+    String.fromCharCode((((v.charCodeAt(0) - 65) + n) % 26) + 65) : v)
+    .join('');
+}
+```
+
 Procedural.
 
 ```js
