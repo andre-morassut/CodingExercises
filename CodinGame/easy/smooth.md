@@ -83,16 +83,12 @@ VICTORY
 ## Code
 
 ```js
-let data = Array(+readline()).fill().map(v => +readline()), reduced;
+let data = Array(+readline()).fill().map(v => +readline());
 let wins = data.map(v => {
-    do {
-        reduced = v;
-        if (v % 5 === 0)  v = v / 5;
-        else if (v % 3 === 0) v = v / 3;
-        else if (v % 2 === 0) v = v / 2;
-    } while (v < reduced);
+    for (let i of [2, 3, 5])
+        while (v % i === 0) v = v / i;
     return v > 1 ? 'DEFEAT' : 'VICTORY';
 });
-console.log(wins.join('\n')); 
+console.log(wins.join('\n'));
 ```
 
