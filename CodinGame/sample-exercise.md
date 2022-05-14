@@ -9,9 +9,5 @@ Level :
 ## Code
 
 ```js
-marked.setOptions({
-  highlight: function(code, lang) {
-    return highlighter.javascript(code);
-  }
-});
+
 ```
