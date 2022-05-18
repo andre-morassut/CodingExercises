@@ -86,3 +86,4 @@ function shift(msg, n) {
 console.log(decoded ? msg : 'WRONG MESSAGE');
 ```
 
+The functional approach is more elegant, whereas the procedural one seems easier to read.
