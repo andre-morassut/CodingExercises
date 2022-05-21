@@ -1,3 +1,11 @@
+# Robot Show
+
+## Description
+
+Level : easy
+
+### Goal
+
 Two rooms are connected by a service duct allowing floor-sweeping bots to move between the rooms.
 The duct is very narrow, just wide enough for one bot to pass through.
 
@@ -15,7 +23,7 @@ What is the longest possible time for the bots to run around in the duct until a
 Example
 
 In a duct of length 10m two bots move face-to-face
-
+```
     >       <
 +-+-+-+-+-+-+-+-+-+-+  init state
 0 1 2 3 4 5 6 7 8 9 10
@@ -33,21 +41,43 @@ In a duct of length 10m two bots move face-to-face
 0 1 2 3 4 5 6 7 8 9 10
 
 Total bot running time: 8 sec
-Input
+```
+
+**Input**
+```
 Line 1: An integer L for the length of the service duct, in meter
 Line 2: An integer N for the number of bots
 Line 3: N integers indicating the initial locations of the bots measured in meter from one end of the duct. Numbers are not arranged in special order.
-Output
-Line 1: An integer, the maximum number of seconds for the bots to continue running in the duct before they all exit.
+```
 
+**Output**
+```
+Line 1: An integer, the maximum number of seconds for the bots to continue running in the duct before they all exit.
 If the answer is not an integer, round it to become the nearest integer.
-Constraints
+```
+
+**Constraints**
+```
 2 ≤ L ≤ 1000
 1 ≤ N ≤ 100
-Example
-Input
+```
+
+**Example**
+
+**Input**
+```
 10
 2
 2 6
-Output
+```
+
+**Output**
+```
 8
+```
+
+## Code
+
+```js
+// coming soon
+```
