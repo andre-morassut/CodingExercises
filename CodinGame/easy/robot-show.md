@@ -20,7 +20,7 @@ Bob finds that it is very interesting to watch the bots bumping and bouncing bac
 
 What is the longest possible time for the bots to run around in the duct until all bots exit?
 
-Example
+**Example**
 
 In a duct of length 10m two bots move face-to-face
 ```
@@ -47,7 +47,8 @@ Total bot running time: 8 sec
 ```
 Line 1: An integer L for the length of the service duct, in meter
 Line 2: An integer N for the number of bots
-Line 3: N integers indicating the initial locations of the bots measured in meter from one end of the duct. Numbers are not arranged in special order.
+Line 3: N integers indicating the initial locations of the bots measured in meter from one end of the duct. 
+Numbers are not arranged in special order.
 ```
 
 **Output**
