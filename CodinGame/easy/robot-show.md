@@ -79,6 +79,14 @@ If the answer is not an integer, round it to become the nearest integer.
 
 ## Code
 
+The tag of this exercise is "Strive for simplicity", and indeed, you must have a straightforward approach.
+I must admit that, at first, I've been stumped : my first answer simulated the robot show.
+Someone did it visually : https://jsbin.com/tiluminula/2/edit?html,js,output 
+
 ```js
-// coming soon
+const L = +readline();
+readline(); // N is not necessary
+const B = readline().split(' ');
+let max = B.reduce((acc, cur) => Math.max(acc, Math.max(cur, L - cur)), 0);
+console.log(max);
 ```
