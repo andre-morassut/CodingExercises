@@ -51,6 +51,35 @@ a
 
 ## Code
 
-```js
+Solution - With a map
 
+```js
+let vMax = 0;
+let cMax;
+const sequence = readline().match(/-?[a-z]/gm);
+let weights = sequence.reduce((acc, cur, i, arr) => { // compute weight by letter
+    if (cur.length === 1) {
+        acc.level++;
+        if (!acc.map.has(cur)) {
+            acc.map.set(cur, 0);
+        }
+        acc.map.set(cur, acc.map.get(cur) + 1/acc.level);
+    } else {
+        acc.level--;
+    }
+    return acc;
+}, {level:1,map:new Map()});
+weights.map.forEach((v, c) => { // find the max value with the min letter
+    if (v > vMax) {
+        vMax = v;
+        cMax = c;        
+    } else if (v === vMax) {
+        if (!cMax) {
+            cMax = c;
+        } else if (c < cMax) {
+            cMax = c;
+        }
+    }
+});
+console.log(cMax);
 ```
