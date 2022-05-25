@@ -51,7 +51,23 @@ a
 
 ## Code
 
-Solution - With a map
+Solution - with an array to implicitly store characters value (first position is the level, others are chars : 1 for a, 2 for b and so on).
+
+```js
+let tags = readline().match(/-?[a-z]/gm).reduce((acc, cur) => {
+    if (cur.length === 1) {
+        acc[0]++;
+        acc[cur.charCodeAt(0) - 96] += 1/acc[0];
+    } else {
+        acc[0]--;
+    }
+    return acc;
+}, Array(27).fill(0)).slice(1);
+let answer = tags.reduce((acc, cur, i, arr) => cur > arr[acc] ? i : acc, 0);
+console.log(String.fromCharCode(answer + 97));
+```
+
+Another solution - with a map this time.
 
 ```js
 let vMax = 0;
