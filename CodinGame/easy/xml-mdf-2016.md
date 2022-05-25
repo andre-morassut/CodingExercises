@@ -55,7 +55,7 @@ Solution - with an array to implicitly store characters value (first position is
 
 ```js
 let tags = readline().match(/-?[a-z]/gm).reduce((acc, cur) => {
-    if (cur.length === 1) {
+    if (cur.length === 1) { // opening tag => update weight
         acc[0]++;
         acc[cur.charCodeAt(0) - 96] += 1/acc[0];
     } else {
@@ -63,7 +63,7 @@ let tags = readline().match(/-?[a-z]/gm).reduce((acc, cur) => {
     }
     return acc;
 }, Array(27).fill(0)).slice(1);
-let answer = tags.reduce((acc, cur, i, arr) => cur > arr[acc] ? i : acc, 0);
+let answer = tags.reduce((acc, cur, i, arr) => cur > arr[acc] ? i : acc, 0); // first strict maximum is the answer
 console.log(String.fromCharCode(answer + 97));
 ```
 
