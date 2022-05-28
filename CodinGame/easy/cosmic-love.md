@@ -49,7 +49,14 @@ G7_24a
 
 ## Code
 
-```js
+_Warning : the following algorithm fails at the additional validators, but the details are not available. Obviously, this is a rounding issue and hopefully I'll find time to iron it out._
 
+```js
+const N = +readline(); // number of planets
+let inputs = Array(N).fill().map(v => readline().split(' ')).sort((a, b) => a[3] - b[3]) // [name, r, m, c]
+let densities = inputs.map(v => +v[2] / (4/3 * Math.PI * (+v[1])**3)); // [d]
+let dlim = densities.map((v, i) => inputs[i][3] - (inputs[0][1] * Math.cbrt(2 * densities[0] / v))); // dlim = [c - roche]
+let closest = dlim.reduce((acc, cur, i, arr) => (cur > 0 && cur < acc) ? cur : acc, Number.MAX_SAFE_INTEGER); // min dlim
+console.log(inputs[dlim.indexOf(closest)][0]); // name at min dlim index
 ```
 
