@@ -105,6 +105,37 @@ fish is bad and
 ## Code
 
 ```js
-
+// The given function
+let randomSeed = 0;
+function pickOptionIndex(numOfOptions) {
+    randomSeed += 7;
+    return randomSeed % numOfOptions;
+}
+// input data
+const t = readline().split(' ');
+const d = +readline();
+const l = +readline();
+const s = readline().split(' ');
+// create markov chain lookup map
+let lookup = t.reduce((acc, cur, i, arr) => {
+    if (i <= (t.length - d)) {
+        let key = t.slice(i, i + d).join(' ');
+        if (acc.has(key)) {
+            acc.get(key).push(i < t.length ? t[i + d] : '');
+        } else {
+            acc.set(key, (i + d) < t.length ? [t[i + d]] : ['']);
+        }
+    }
+    return acc;
+}, new Map());
+// generate a sentence of l words using the markov chain
+let generated = s.slice();
+let wordCount = s.length;
+while (wordCount < l) {
+    let val = lookup.get(generated.slice(-d).join(' '));
+    wordCount = generated.push(val[pickOptionIndex(val.length)]);
+}
+// log result
+console.log(generated.join(' '));
 ```
 
