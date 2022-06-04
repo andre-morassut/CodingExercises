@@ -59,3 +59,13 @@ let longuest = sequences.reduce((a, v, i, arr) => {
 
 console.log(longuest);
 ```
+
+I took a long path with this one, it can be simplified to :
+
+```js
+console.log(readline().split("0")
+             .map(x => x.length)
+             .reduce((a, v, i, m) =>
+                Math.max(a, v + (m[i+1]||0) + 1)
+                , 0));
+```
