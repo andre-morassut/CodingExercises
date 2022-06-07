@@ -50,5 +50,16 @@ A single integer that is the Nth element of the sequence
 ## Code
 
 ```js
+const A1 = +readline();
+const N = +readline();
 
+let pos = Array(N).fill(-1);
+let cur = A1;
+for (let i = 1; i < N; i++) {
+    let lastpos = pos[cur]; // keep last position to compute distance.
+    pos[cur] = i - 1; // update the position of the previous number
+    cur = lastpos !== -1 ? (i - 1) - lastpos : 0; // compute next number : distance or new (0)
+}
+
+console.log(cur);
 ```
