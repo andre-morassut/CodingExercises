@@ -49,6 +49,19 @@ Following the same order as inputs, each line starts with a given number from th
 ## Code
 
 ```js
+const N = +readline();
+let numbers = Array(N).fill().map(v => BigInt(readline()));
 
+let output = numbers.map(v => {
+    let visited = [];
+    let cur = v;
+    while (cur != 1 && visited.indexOf(cur) === -1) {
+        visited.push(cur);
+        cur = [...cur.toString(10)].map(v => v ** 2).reduce((ac, cur) => ac += cur, 0);
+    }
+    return v.toString(10) + ' ' + (cur == 1 ? ':)' : ':(');
+});
+
+console.log(output.join('\n'));
 ```
 
