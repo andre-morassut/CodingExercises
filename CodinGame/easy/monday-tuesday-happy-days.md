@@ -40,7 +40,40 @@ Tuesday
 
 ## Code
 
-```js
+I'm not really happy with this solution. I saw others used the Date API, which is logical. 
+I wanted to avoid using it to produce a concise solution working only with simple data. But the result feels clumsy. Maybe I'll work out a better solution in the future.
 
+```js
+const leap = +readline();
+const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const monthNames   = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const monthLengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+monthLengths[1] += leap; // leap year ?
+
+let [sourceDayOfWeek, sourceMonth, sourceDayOfMonth] = readline().split(' ');
+sourceDayOfMonth = +sourceDayOfMonth;
+
+let [targetMonth, targetDayOfMonth] = readline().split(' ');
+targetDayOfMonth = +targetDayOfMonth;
+
+let indexStartMonth = monthNames.indexOf(sourceMonth);
+let indexEndMonth = monthNames.indexOf(targetMonth);
+
+let answer;
+if (indexStartMonth === indexEndMonth) {
+    answer = targetDayOfMonth - sourceDayOfMonth;
+} else if (indexStartMonth < indexEndMonth) {
+    answer = monthLengths[indexStartMonth] - sourceDayOfMonth;
+    answer += monthLengths.slice(indexStartMonth + 1, indexEndMonth).reduce((ac, cur) => ac += cur, 0);
+    answer += targetDayOfMonth;
+} else {
+    answer = sourceDayOfMonth;
+    answer += monthLengths.slice(indexEndMonth + 1, indexStartMonth).reduce((ac, cur) => ac += cur, 0);
+    answer += monthLengths[indexEndMonth] - targetDayOfMonth;
+    answer = monthLengths.reduce((ac, v) => ac += v, 0) - answer - (leap ? 2 : 1);
+}
+answer = (dayNames.indexOf(sourceDayOfWeek) + answer) % 7
+
+console.log(dayNames[answer]);
 ```
 
