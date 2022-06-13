@@ -64,7 +64,33 @@ S the sum of the diagonals
 
 ## Code
 
-```js
+There are many ways to solve this exercise.
 
+The one I chose rely on the following properties :
+* Odd matrix : n² + (n² - 2) + (n² - 4) + (n² - 6) + [ 4 times substracting 4 ] + [ 4 times substracting 6 ] + [ 4 times substracting 8 ] and so on.
+* Even matrix : n² + (n² - 1) + (n² - 1) + [ 4 times substracting 3 ] + [ 4 times substracting 5 ] + [ 4 times substracting 7 ] and so on.
+
+So on an even matrix, the substraction will follow an odd pattern : 1, 3, 5, 7, ...
+
+On an odd matrix, it will be an even pattern : 2, 4, 6, 8, ...
+
+```js
+let n = +readline();
+let total = next = n ** 2;
+let sub = n % 2 ? 2 : 1;
+for (let i = 0; i < (sub + 2) && (next - sub) > 0; i++) {
+    next = next - sub;
+    total += next;
+}
+sub = sub + 2;
+next = next - sub;
+let i = 1;
+while (next > 0) {
+    if (i % 4 === 0) sub = sub + 2;
+    i++;
+    total += next;
+    next = next - sub;
+}
+console.log(total);
 ```
 
