@@ -26,6 +26,26 @@ Get it done agent ! (Good Luck)
 ## Code
 
 ```js
+const P = +readline();
+const C = readline();
+
+console.error(`P:${P} ; C:${C}`);
+
+// example of an encoding function
+function encode(message) {
+    let c = "abcd";
+    let acc = [...message].reduce((ac, cur, i) => ac += c.indexOf(cur) + (i > 0 ? c.length ** i : 0), 0);
+    console.error(message + ' = ' + acc);
+}
+
+encode('a');
+encode('d');
+encode('aa');
+encode('ab');
+encode('aaa');
+encode('daa');
+
+console.log('work in progress');
 
 ```
 
