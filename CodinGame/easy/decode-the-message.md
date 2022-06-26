@@ -25,27 +25,66 @@ Get it done agent ! (Good Luck)
 
 ## Code
 
+P is a summation of `n` terms (with `n` being the length of the message and the alphabet index starting at 0) as follows:
+```
+P = (alphabet index of letter 1)
+    + ( ( (letter 2 index) + 1 ) * alphabet size^1 )
+    + ...
+    + ( ( (letter n index) + 1 ) * alphabet size^(n - 1) )
+```
+
+So, decoding P is done using:
+```
+DECODED = index letter 1 = (P % alphabet size) ; 
+          index letter 2 = (P / (alphabet size - 1)) ;
+          ...
+          index letter n = ( P / ( (alphabet size - 1)^(n - 1) ) )
+```
+
+Variant 1
+
+```js
+let decoded = '';
+let message = +readline();
+let alphabet = readline();
+while (message >= 0) {
+    decoded += alphabet.charAt(message % alphabet.length);
+    message = message / alphabet.length - 1;
+}
+console.log(decoded);
+```
+
+Variant 2 - With an array as alphabet
+
 ```js
 const P = +readline();
-const C = readline();
+const C = [...readline()];
+let decoded = '';
+let message = P;
+while (message >= 0) {
+    decoded += C[(message % C.length) | 0];
+    message = message / C.length - 1;
+}
+console.log(decoded);
+```
 
-console.error(`P:${P} ; C:${C}`);
-
-// example of an encoding function
+An encode function.
+```js
 function encode(message) {
     let c = "abcd";
     let acc = [...message].reduce((ac, cur, i) => ac += c.indexOf(cur) + (i > 0 ? c.length ** i : 0), 0);
-    console.error(message + ' = ' + acc);
+    console.error('encode: ' + message + ' = ' + acc);
 }
-
-encode('a');
-encode('d');
-encode('aa');
-encode('ab');
-encode('aaa');
-encode('daa');
-
-console.log('work in progress');
-
 ```
 
+A decode function.
+```js
+function decode(mess, alpha) {
+    let res = '';
+    while (mess >= 0) {
+        res += alpha.charAt(mess % alpha.length);
+        mess = mess / alpha.length - 1;
+    }
+    console.error('decode: ' + mess + ' = '  + res);
+}
+```
