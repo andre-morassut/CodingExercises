@@ -70,21 +70,19 @@ console.log(decoded);
 
 An encode function.
 ```js
-function encode(message) {
-    let c = "abcd";
-    let acc = [...message].reduce((ac, cur, i) => ac += c.indexOf(cur) + (i > 0 ? c.length ** i : 0), 0);
-    console.error('encode: ' + message + ' = ' + acc);
+function encode(message, alphabet) {
+    return [...message].reduce((ac, cur, i) => ac += alphabet.indexOf(cur) + (i > 0 ? alphabet.length ** i : 0), 0);
 }
 ```
 
 A decode function.
 ```js
-function decode(mess, alpha) {
+function decode(message, alpha) {
     let res = '';
-    while (mess >= 0) {
-        res += alpha.charAt(mess % alpha.length);
-        mess = mess / alpha.length - 1;
+    while (message >= 0) {
+        res += alpha.charAt(message % alpha.length);
+        message = message / alpha.length - 1;
     }
-    console.error('decode: ' + mess + ' = '  + res);
+    return res;
 }
 ```
